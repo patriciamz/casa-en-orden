@@ -1,0 +1,53 @@
+name: Publicar
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: publicar
+  cancel-in-progress: true
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow cryptography
+      - name: Compilar el APK
+        env:
+          CLAVE_CODIGOS: ${{ secrets.CLAVE_CODIGOS }}
+          KEYSTORE_PEM: ${{ secrets.KEYSTORE_PEM }}
+          RUN_NUMBER: ${{ github.run_number }}
+        run: python build_apk.py
+      - name: Publicar el APK en Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "v${{ github.run_number }}" out/CasaEnOrden.apk --title "Casa en Orden v${{ github.run_number }}" --notes "Versión automática" --latest
+  sitio:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preparar el sitio
+        run: |
+          mkdir _site
+          cp index.html config.json _site/
+          sed -i "s#__REPO__#${GITHUB_REPOSITORY}#g" _site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4
