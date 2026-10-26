@@ -43,8 +43,8 @@ jobs:
       - name: Preparar el sitio
         run: |
           mkdir _site
-          cp index.html config.json _site/
-          sed -i "s#__REPO__#${GITHUB_REPOSITORY}#g" _site/index.html
+          cp index.html instructivo.html config.json _site/
+          sed -i "s#__REPO__#${GITHUB_REPOSITORY}#g" _site/index.html _site/instructivo.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

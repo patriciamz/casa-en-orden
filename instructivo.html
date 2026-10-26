@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casa en Orden – Cómo bajar, comprar y activar la app</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600;1,9..144,800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#FAF8F0;--card:#FFFEFA;--ink:#14291B;--mute:#5C6B60;--line:#E4E0CD;--brand:#35603F;--onbrand:#fff;--hi:#DDEAD7;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101A14;--card:#17241B;--ink:#EDEBDD;--mute:#A3B2A6;--line:#28392D;--brand:#8FC29A;--onbrand:#0F1A13;--hi:#24382A}}
+:root[data-theme="dark"]{--bg:#101A14;--card:#17241B;--ink:#EDEBDD;--mute:#A3B2A6;--line:#28392D;--brand:#8FC29A;--onbrand:#0F1A13;--hi:#24382A}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'DM Sans',system-ui,sans-serif}
+main{max-width:640px;margin:0 auto;padding:28px 20px 60px}
+h1,h2{font-family:'Fraunces',Georgia,serif;letter-spacing:-.02em;margin:0;line-height:1.1}
+h1{font-size:clamp(2rem,8vw,2.8rem);font-weight:800}h1 em{font-style:italic;color:var(--brand)}
+h2{font-size:1.3rem;font-weight:800;margin-bottom:10px}
+.lead{color:var(--mute);margin:14px 0 26px}
+.paso{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:20px;margin-bottom:16px}
+.paso header{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.num{flex:none;width:38px;height:38px;border-radius:50%;background:var(--brand);color:var(--onbrand);display:grid;place-items:center;font-weight:800}
+.paso ol,.paso ul{margin:8px 0 0;padding-left:22px}.paso li{margin-bottom:6px}
+.paso p{margin:6px 0}.mute{color:var(--mute)}
+.btn{display:inline-block;text-decoration:none;background:var(--brand);color:var(--onbrand);padding:14px 24px;border-radius:999px;font-weight:700;margin:8px 8px 4px 0}
+.btn.out{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.ej{display:inline-block;background:var(--hi);border-radius:10px;padding:2px 10px;font-weight:700;letter-spacing:.04em}
+details{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700}details p{color:var(--mute);margin:8px 0 0}
+.back{display:inline-block;margin-bottom:18px;color:var(--brand);font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="./">← Volver a la página del curso</a>
+<h1>Cómo bajar, comprar y <em>activar</em> Casa en Orden</h1>
+<p class="lead">Seguí estos 4 pasos desde tu celular Android. Te lleva unos 5 minutos.</p>
+
+<section class="paso">
+<header><span class="num">1</span><h2>Bajá la app, es gratis</h2></header>
+<a class="btn" id="b-apk" href="https://github.com/__REPO__/releases/latest/download/CasaEnOrden.apk">Descargar la app</a>
+<ol>
+<li>Tocá el botón de arriba. Se baja el archivo <b>CasaEnOrden</b>.</li>
+<li>Abrilo desde la notificación de descarga, o desde la app <b>Archivos</b>, en <b>Descargas</b>.</li>
+<li>Si Android dice que no permite instalar apps desconocidas, tocá <b>Configuración</b>, activá <b>Permitir desde esta fuente</b> y volvé para atrás.</li>
+<li>Tocá <b>Instalar</b>. Si Play Protect avisa algo, tocá <b>Más detalles</b> y después <b>Instalar de todas formas</b>.</li>
+<li>Tocá <b>Abrir</b>. Ya podés usar el módulo 1 gratis.</li>
+</ol>
+</section>
+
+<section class="paso">
+<header><span class="num">2</span><h2>Comprá el curso completo</h2></header>
+<p>Pagás una sola vez <b id="precio"></b> y tenés los 5 módulos de por vida.</p>
+<a class="btn" id="b-pago" href="#">Pagar con Mercado Pago</a>
+<p class="mute" id="sin-pago" style="display:none">Pedí el link de pago por WhatsApp.</p>
+<p class="mute">Guardá el comprobante de pago, lo vas a necesitar en el próximo paso.</p>
+</section>
+
+<section class="paso">
+<header><span class="num">3</span><h2>Pedí tu código de activación</h2></header>
+<ol>
+<li>Abrí la app y tocá un módulo con candado (del 2 en adelante).</li>
+<li>Va a aparecer tu <b>ID</b>, que son 10 letras y números. Por ejemplo: <span class="ej">K7QM4-TXR3P</span></li>
+<li>Tocá <b>Enviar mi ID por WhatsApp</b>, o copiá el ID y mandalo por WhatsApp junto con el comprobante de pago.</li>
+<li>En un rato te llega tu <b>código personal</b>, con este formato: <span class="ej">XXXX-XXXX-XXXX-XXXX</span></li>
+</ol>
+<a class="btn out" id="b-wa" href="#" style="display:none">Escribir por WhatsApp</a>
+</section>
+
+<section class="paso">
+<header><span class="num">4</span><h2>Activá el curso</h2></header>
+<ol>
+<li>Copiá el código del mensaje que te mandaron.</li>
+<li>Abrí la app y tocá de nuevo un módulo con candado.</li>
+<li>Pegá el código donde dice <b>Pegá tu código</b> y tocá <b>Activar</b>.</li>
+</ol>
+<p>Listo: se abren los 5 módulos. Después lo usás sin internet, cuando quieras.</p>
+</section>
+
+<h2 style="margin:30px 0 12px">Si algo no sale</h2>
+<details><summary>Me dice que el código no es válido</summary><p>Revisá que esté completo y sin espacios de más. Tiene que ser el código que te dieron para el ID de este mismo celular.</p></details>
+<details><summary>Cambié de celular o reinstalé la app</summary><p>El código es personal de cada celular. Al reinstalar o cambiar de celular, el ID cambia: mandá el ID nuevo por WhatsApp y te damos otro código.</p></details>
+<details><summary>No me deja instalar</summary><p>Si ya tenías una versión anterior de la app, desinstalala primero y probá de nuevo. Revisá también que el archivo termine en .apk. Si sigue igual, escribinos.</p></details>
+<details><summary>¿Funciona en iPhone?</summary><p>Por ahora no. Es solo para celulares Android.</p></details>
+<details><summary>¿Necesito internet?</summary><p>Solo para bajar la app y para pagar. Después funciona sin conexión.</p></details>
+</main>
+<script>
+var CONFIG={precio:'',pago:'',wa:''};
+function aplica(){
+  document.getElementById('precio').textContent=CONFIG.precio;
+  var bp=document.getElementById('b-pago'),sp=document.getElementById('sin-pago'),bw=document.getElementById('b-wa');
+  if(CONFIG.pago){bp.href=CONFIG.pago}else{bp.style.display='none';sp.style.display='block'}
+  if(CONFIG.wa){bw.href='https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent('Hola! Ya pagué Casa en Orden. Mi ID es: ');bw.style.display='inline-block'}
+}
+aplica();
+try{fetch('config.json').then(function(r){return r.json()}).then(function(c){CONFIG=Object.assign(CONFIG,c);aplica()}).catch(function(){})}catch(e){}
+</script>
+</body>
+</html>
